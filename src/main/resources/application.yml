@@ -1,0 +1,22 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: baiduapi
+  datasource:
+    url: jdbc:mysql://localhost:3306/baiduapi?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+
+upload:
+  directory: public/uploads
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath*:mappers/*.xml
+  type-aliases-package: com.tinxing.baiduapi.dao
+logging:
+  level:
+    org.springframework.jdbc: debug
+    com.baomidou.mybatisplus.test.autoconfigure: debug
