@@ -28,8 +28,8 @@ public class CommonServiceImpl implements ICommonService {
 
     @Override
     public String getAccessToken(){
-        if (RESPONSE_DATA != null && !RESPONSE_DATA.isEmpty()) {
-            Long endTime = Long.parseLong(RESPONSE_DATA.get("expires_in"));
+        if (!RESPONSE_DATA.isEmpty()) {
+            long endTime = Long.parseLong(RESPONSE_DATA.get("expires_in"));
             if(System.currentTimeMillis() < endTime){
                 return RESPONSE_DATA.get("access_token");
             }

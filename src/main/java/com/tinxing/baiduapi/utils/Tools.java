@@ -1,10 +1,5 @@
 package com.tinxing.baiduapi.utils;
 
-import cn.hutool.http.HttpResponse;
-import cn.hutool.http.HttpUtil;
-import org.springframework.web.bind.annotation.RequestBody;
-
-import java.io.IOException;
 import java.util.Map;
 import java.util.stream.Collectors;
 

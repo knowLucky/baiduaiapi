@@ -1,20 +1,16 @@
 package com.tinxing.baiduapi.service.impl;
 
-import cn.hutool.http.HttpResponse;
 import cn.hutool.http.HttpUtil;
-import cn.hutool.json.JSONUtil;
-import com.tinxing.baiduapi.model.ImageRecognition;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.tinxing.baiduapi.dao.ImageRecognitionMapper;
+import com.tinxing.baiduapi.model.ImageRecognition;
 import com.tinxing.baiduapi.service.ICommonService;
 import com.tinxing.baiduapi.service.IImageRecognitionService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.tinxing.baiduapi.utils.ApiResponse;
 import com.tinxing.baiduapi.utils.Tools;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.logging.log4j.util.Base64Util;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.io.FileUrlResource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -78,7 +74,7 @@ public class ImageRecognitionServiceImpl extends ServiceImpl<ImageRecognitionMap
             file.transferTo(path);
             return ApiResponse.success("/uploads/" + newFileName);
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error("保存图片失败: {}", e.getMessage(), e);
             return ApiResponse.error(e.getMessage());
         }
     }
@@ -149,7 +145,6 @@ public class ImageRecognitionServiceImpl extends ServiceImpl<ImageRecognitionMap
             return result;
         } catch (Exception e) {
             log.error("动物识别图片失败: {}", e.getMessage(), e);
-            e.printStackTrace();
             throw new RuntimeException("动物识别图片时发生错误");
         }
     }
@@ -186,7 +181,6 @@ public class ImageRecognitionServiceImpl extends ServiceImpl<ImageRecognitionMap
             return result;
         } catch (Exception e) {
             log.error("植物识别图片失败: {}", e.getMessage(), e);
-            e.printStackTrace();
             throw new RuntimeException("植物识别图片时发生错误");
         }
     }
