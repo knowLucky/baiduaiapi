@@ -25,11 +25,11 @@ public class ApiResponse<T> implements Serializable {
 
     // 静态方法便捷生成成功或失败响应
     public static <T> ApiResponse<T> success() {
-        return new ApiResponse<>(200, "Success", null);
+        return new ApiResponse<>(200, "success", null);
     }
 
     public static <T> ApiResponse<T> success(T data) {
-        return new ApiResponse<>(200, "Success", data);
+        return new ApiResponse<>(200, "success", data);
     }
 
     public static <T> ApiResponse<T> success(String message, T data) {

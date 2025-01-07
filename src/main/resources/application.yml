@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8888
 
 spring:
   application:
@@ -8,9 +8,15 @@ spring:
     url: jdbc:mysql://localhost:3306/baiduapi?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
     username: root
     password: root
-
+  servlet:
+    multipart:
+      max-file-size: 2MB
+      max-request-size: 2MB
+  web:
+    resources:
+      static-locations: classpath:/public/uploads
 upload:
-  directory: public/uploads
+  directory: uploads
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
@@ -20,3 +26,7 @@ logging:
   level:
     org.springframework.jdbc: debug
     com.baomidou.mybatisplus.test.autoconfigure: debug
+
+baiduapi:
+  client-id: jCA8TzPI9SpRCxfivGFzh3OA
+  client-secret: xoO4CoPlmoV7alpGCbVzY8fMGYu2VwLI

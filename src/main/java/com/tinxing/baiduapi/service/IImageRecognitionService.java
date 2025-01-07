@@ -2,6 +2,8 @@ package com.tinxing.baiduapi.service;
 
 import com.tinxing.baiduapi.model.ImageRecognition;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.tinxing.baiduapi.utils.ApiResponse;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * <p>
@@ -13,4 +15,11 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IImageRecognitionService extends IService<ImageRecognition> {
 
+    ApiResponse<String> saveImage(MultipartFile file);
+
+    String anime(String imgUrl);
+
+    String animal(String imgUrl);
+
+    String plant(String imgUrl);
 }
